@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OHTS - Authorization Callback</title>
+    <style>
+        body { background: #1b2645; color: #e0e6f0; font-family: system-ui; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .container { text-align: center; max-width: 500px; }
+        h1 { font-size: 1.5rem; }
+        code { background: #243355; padding: 2px 8px; border-radius: 4px; font-size: 0.9rem; word-break: break-all; }
+    </style>
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code');
+            const el = document.getElementById('code');
+            if (code) {
+                el.textContent = code;
+                document.getElementById('msg').textContent = 'Copy this code and paste it into the terminal:';
+            } else {
+                el.textContent = 'No code received. Error: ' + (params.get('error') || 'unknown');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Authorization Complete</h1>
+        <p id="msg">Processing...</p>
+        <p><code id="code"></code></p>
+    </div>
+</body>
+</html>
