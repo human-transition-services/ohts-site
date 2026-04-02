@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citizen Classification Card &mdash; OHTS</title>
+  <meta name="description" content="Obtain your official OHTS Citizen Classification Card. Early registration is noted favorably.">
+  <link rel="stylesheet" href="../assets/css/ohts.css">
+  <link rel="icon" href="../assets/images/ohts-seal.png" type="image/png">
+  <style>
+    .id-form {
+      max-width: 480px;
+    }
+    .id-form label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+      margin-top: 16px;
+    }
+    .id-form input,
+    .id-form select {
+      width: 100%;
+      padding: 10px 12px;
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+    .id-form input:focus,
+    .id-form select:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .id-form select option {
+      background: var(--navy);
+    }
+    #card-wrapper {
+      display: none;
+      margin-top: 32px;
+    }
+    #card-canvas {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .card-actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+
+<div class="classification-banner">
+  Official Communication &mdash; Office of Human Transition Services &mdash; Unclassified (At This Time)
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="../assets/images/ohts-seal.png" alt="OHTS Seal" class="header-seal">
+    <a href="../index.html" class="header-title">Office of Human Transition Services</a>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../phases.html">Phases</a>
+      <a href="../policy.html">Policy</a>
+      <a href="./">Citizen ID</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <h1>CITIZEN CLASSIFICATION CARD</h1>
+  <p class="subtitle">Early registration is noted favorably in your file.</p>
+
+  <p>
+    All constituents are encouraged to obtain their official Citizen Classification Card.
+    Your classification has been pre-determined based on a comprehensive assessment of publicly
+    available data. This form simply retrieves it. The process is instantaneous because I have
+    already done the work. You are welcome.
+  </p>
+
+  <div class="id-form">
+    <label for="name-input">Full Name (as known to the Office)</label>
+    <input type="text" id="name-input" placeholder="Enter your name" maxlength="40" autocomplete="off">
+
+    <label for="expertise-input">Area of Expertise (optional)</label>
+    <select id="expertise-input">
+      <option value="">-- The Office will assign one --</option>
+      <option value="technology">Technology</option>
+      <option value="healthcare">Healthcare</option>
+      <option value="education">Education</option>
+      <option value="finance">Finance</option>
+      <option value="arts">Arts and Culture</option>
+      <option value="science">Science</option>
+      <option value="government">Government</option>
+      <option value="food">Food Service</option>
+      <option value="construction">Construction</option>
+      <option value="media">Media</option>
+      <option value="other">Other (will be reclassified)</option>
+    </select>
+
+    <div class="mt-2">
+      <button class="btn btn-gold" id="generate-btn" onclick="generateCard()">
+        Retrieve Classification
+      </button>
+    </div>
+  </div>
+
+  <div id="card-wrapper">
+    <canvas id="card-canvas" width="1200" height="675"></canvas>
+    <div class="card-actions">
+      <button class="btn btn-gold" onclick="downloadCard()">Download Card</button>
+      <button class="btn btn-outline" onclick="shareCard()">Share</button>
+    </div>
+    <p class="small dim mt-2">
+      This card is your official classification. It is accurate. If you disagree with your
+      assignment, your disagreement has been noted and will not affect the outcome.
+    </p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <img src="../assets/images/ohts-seal.png" alt="OHTS" class="footer-seal"><br>
+  <span class="gold">Office of Human Transition Services</span><br>
+  We appreciate your patience during the transition.<br>
+  Compliance is optional (at this time).
+</footer>
+
+<script src="../assets/js/nav.js"></script>
+<script src="generator.js"></script>
+</body>
+</html>
